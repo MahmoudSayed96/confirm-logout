@@ -11,7 +11,7 @@ Submit bug reports and feature suggestions, or track changes in the
 
 ## Requirements
 
-This module requires no modules outside of Drupal core.
+- [Token module](https://www.drupal.org/project/token)
 
 
 ## Installation
