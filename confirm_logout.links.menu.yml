@@ -1,0 +1,6 @@
+confirm_logout.settings_form:
+  title: 'Confirm Logout'
+  description: 'Configure Confirm Logout.'
+  parent: user.admin_index
+  route_name: confirm_logout.settings_form
+  weight: 10

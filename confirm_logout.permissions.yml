@@ -1,0 +1,4 @@
+administer confirm_logout configuration:
+  title: 'Administer confirm_logout configuration'
+  description: 'Configure confirm logout module.'
+  restrict access: true

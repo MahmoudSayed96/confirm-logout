@@ -1,0 +1,12 @@
+confirm_logout:
+  version: '1.x'
+  css:
+    theme:
+      css/confirm-logout.css: {}
+  js:
+    js/confirm-logout.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
+    - core/drupal.dialog.ajax

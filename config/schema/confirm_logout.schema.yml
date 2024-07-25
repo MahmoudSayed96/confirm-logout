@@ -1,0 +1,23 @@
+# Schema for the configuration files of the Confirm Logout module.
+confirm_logout.settings:
+  langcode: en
+  type: config_object
+  label: 'Confirm Logout settings'
+  mapping:
+    show_as_popup:
+      type: boolean
+      label: 'Show as popup'
+    popup_title:
+        type: text
+        label: 'Popup title'
+    popup_confirm_text:
+      type: text_format
+      value: ''              # ckeditor content
+      format: 'basic_html'   # ckeditor format
+      label: 'Popup confirm text'
+    popup_cancel_url:
+        type: string
+        label: 'Popup cancel redirect url'
+    popup_confirm_url:
+      type: string
+      label: 'Popup confirm redirect url'

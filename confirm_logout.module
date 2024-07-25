@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Confirm Logout module.
+ */
+
+use Drupal\confirm_logout\Form\SettingsForm;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function confirm_logout_theme($existing, $type, $theme, $path) {
+  return [
+    'confirm_logout_popup' => [
+      'render element' => 'form',
+      'template' => 'confirm-logout-popup',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function confirm_logout_preprocess_page(&$variables) {
+  $config = \Drupal::config(SettingsForm::SETTINGS);
+  $variables['show_as_popup'] = $config->get('show_as_popup');
+  $variables['popup_title'] = $config->get('popup_title');
+  $variables['popup_confirm_text'] = $config->get('popup_confirm_text');
+  $variables['popup_cancel_url'] = $config->get('popup_cancel_url');
+  $variables['popup_confirm_url'] = $config->get('popup_confirm_url');
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function confirm_logout_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $config = \Drupal::config(SettingsForm::SETTINGS);
+  if ($form_id === 'confirm_logout_user_confirm_logout' && $config->get('show_as_popup')) {
+    $form['#attached']['library'][] = 'confirm_logout/confirm_logout';
+    $form['#theme'] = 'confirm_logout_popup';
+    $description = !empty($config->get('popup_confirm_text')) ?
+      $config->get('popup_confirm_text')['value']
+      : t('Are you sure you want to do logout?');
+    $title = !empty($config->get('popup_title')) ? $config->get('popup_title') : t('Logout');
+    $form['description']['#markup'] = "<div class='confirm-text'><h3>{$title}</h3>{$description}</div>";
+    unset($form['#title']);
+  }
+}

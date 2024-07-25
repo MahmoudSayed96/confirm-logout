@@ -1,0 +1,6 @@
+services:
+  confirm_logout.route_subscriber:
+    class: Drupal\confirm_logout\EventSubscriber\ConfirmLogoutRouteSubscriber
+    arguments: ['@logger.factory']
+    tags:
+      - { name: event_subscriber }

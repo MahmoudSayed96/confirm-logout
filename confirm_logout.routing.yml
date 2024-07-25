@@ -1,0 +1,23 @@
+confirm_logout.settings:
+  path: '/admin/config/people/confirm-logout'
+  defaults:
+    _title: 'Confirm Logout configuration'
+    _form: 'Drupal\confirm_logout\Form\SettingsForm'
+  requirements:
+    _permission: 'administer confirm_logout configuration'
+
+confirm_logout.user_confirm_logout:
+  path: '/confirm/logout'
+  defaults:
+    _title_callback: 'Drupal\confirm_logout\Form\ConfirmLogoutForm::getTitle'
+    _form: 'Drupal\confirm_logout\Form\ConfirmLogoutForm'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+
+confirm_logout.confirm_logout:
+  path: '/confirm-logout'
+  defaults:
+    _title_callback: 'Drupal\confirm_logout\Form\ConfirmLogoutForm::getTitle'
+    _controller: 'Drupal\confirm_logout\Controller\ConfirmLogoutController::confirmLogout'
+  requirements:
+    _user_is_logged_in: 'TRUE'

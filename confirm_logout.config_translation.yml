@@ -1,0 +1,5 @@
+confirm_logout.settings:
+  title: 'Confirm Logout configuration'
+  base_route_name: confirm_logout.settings
+  names:
+    - confirm_logout.settings

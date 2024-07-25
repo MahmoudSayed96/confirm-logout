@@ -1,0 +1,8 @@
+name: Confirm Logout
+type: module
+description: Confirm user logout functionality
+package: Authentication
+core_version_requirement: ^9 || ^10
+configure: confirm_logout.settings_form
+dependencies:
+  - token:token
