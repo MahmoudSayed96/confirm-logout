@@ -27,7 +27,12 @@ composer require drupal/confirm_logout
 ## Configuration
 
 Configure the module by navigating to *`Administration > Configuration > People > Confirm Logout`*.
+
 ### Translations
+
+Translate the settings
+by navigating to *`Administration > Configuration > Region and language > Configuration translation`*.
+
 You can translate the module to your language by navigating to
 `/admin/config/regional/config-translation` Confirm Logout configuration
 
